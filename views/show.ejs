@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sudoku Solver</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,8 @@
         <h1>Sudoku Solver</h1>
         <div>
             <div class="container">
-                <div class="board">
+                <div class="board" id="boardwala">
+                    <!-- Initial render -->
                     <% ans[0].forEach((ele) => { %>
                         <% ele.forEach((iEle) => { %>
                             <input class="box1" type="number" min="1" max="9" step="1" maxLength ='1' value="<%=iEle%>" readonly>
@@ -19,9 +20,55 @@
                     <% }) %>
                 </div>
             </div>
-            <button id="submit-btn">Solve</button>
+            <button id="prev">Prev</button>
+            <button id="next">Next</button>
         </div>
     </main>
+    
+    <script>
+        // Pass the entire ans array from EJS to the client-side
+        let ans = <%-JSON.stringify(ans)%>;  // This makes the ans matrix available in JavaScript
+        let next = document.getElementById('next');
+        let prev = document.getElementById('prev');
+        let board = document.getElementById('boardwala');
+        let index = <%=i%>;  // Initial index passed from the server
+
+        function reRender(index) {
+            // Clear the existing board
+            board.innerHTML = '';
+
+            // Render the board for the current index
+            ans[index].forEach(row => {
+                row.forEach(cell => {
+                    const input = document.createElement('input');
+                    input.className = 'box';
+                    input.type = 'number';
+                    input.min = 1;
+                    input.max = 9;
+                    input.value = cell;
+                    input.readOnly = true;
+                    board.appendChild(input);
+                });
+            });
+        }
+
+        next.addEventListener('click', () => {
+            if (index < ans.length - 1) {  // Ensure the index doesn't go out of bounds
+                index++;
+                reRender(index);
+                console.log("Next clicked, current index:", index);
+            }
+        });
+
+        prev.addEventListener('click', () => {
+            if (index > 0) {  // Ensure the index doesn't go below 0
+                index--;
+                reRender(index);
+                console.log("Prev clicked, current index:", index);
+            }
+        });
+    </script>
+    
     <script src="app.js"></script>
 </body>
 </html>

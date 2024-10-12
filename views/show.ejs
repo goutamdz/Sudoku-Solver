@@ -27,7 +27,7 @@
     
     <script>
         // Pass the entire ans array from EJS to the client-side
-        let ans = <%-JSON.stringify(ans)%>;  // This makes the ans matrix available in JavaScript
+        let ans = <%- JSON.stringify(ans) %> // This makes the ans matrix available in JavaScript
         let next = document.getElementById('next');
         let prev = document.getElementById('prev');
         let board = document.getElementById('boardwala');

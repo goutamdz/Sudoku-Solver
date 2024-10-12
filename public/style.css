@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    text-align:center
+}
+
+.container{
+    display:flex;
+    justify-content: center;
+    margin-top: 0.2vmin;
+}
+
+.board{
+    width:82vmin;
+    margin:20px;
+}
+
+.box{
+    width:9vmin;
+    height:7vmin;
+    border: 0.1em dotted black;
+    text-align: center;
+}
+
+.box1{
+    width:8vmin;
+    height:7vmin;
+    border: 0.1em dotted black;
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input {
+    outline: none;
+    border: none;
+    margin: 0;
+}
+
+#submit-btn{
+    font-size: 1.3rem;
+    padding: 1vmin;
+}
+
+button{
+    cursor: pointer;
+}

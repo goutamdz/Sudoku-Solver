@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Sudoku Solver</h1>
+        <form method="post" action="http://localhost:3000/solve">
+            <div class="container">
+                <div class="board">
+                    <script>
+                        for(let i=0;i<81;i++){
+                            document.write(`<input class="box" type="number" min="1" max="9" step="1" maxLength ='1' name="box[${i}]">`)
+                        }
+                    </script>
+                    
+                </div>
+            </div>
+            <% if (typeof errorMessage !== 'undefined') { %>
+                <p id="message" style="margin-bottom: 20px;color:red;font-size: 1.3rem;"><%= errorMessage %></p>
+            <% } %>
+            
+            
+            <button id="submit-btn">Solve</button>
+        </form>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

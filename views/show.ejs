@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Sudoku Solver</h1>
+        <div>
+            <div class="container">
+                <div class="board">
+                    <% ans[0].forEach((ele) => { %>
+                        <% ele.forEach((iEle) => { %>
+                            <input class="box1" type="number" min="1" max="9" step="1" maxLength ='1' value="<%=iEle%>" readonly>
+                        <% }) %>
+                    <% }) %>
+                </div>
+            </div>
+            <button id="submit-btn">Solve</button>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
